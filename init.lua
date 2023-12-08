@@ -1,3 +1,23 @@
+vim.cmd([[
+  noremap <C-t> :tabe<CR>
+
+  let g:airline_powerline_fonts = 1
+  if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+  endif
+
+  let g:airline_symbols.space = "\ua0"
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#show_buffers = 0
+  let g:airline_theme = 'dark'
+  let g:airline#extensions#hunks#enabled=0
+  let g:airline#extensions#branch#enabled=1
+
+  let g:neovide_transparency=0.9
+  let g:neovide_cursor_vfx_mode = "torpedo"
+  let g:neovide_scroll_animation_length = 1
+]])
+
 return {
   -- Configure AstroNvim updates
   updater = {
@@ -18,7 +38,15 @@ return {
   },
 
   -- Set colorscheme to use
-  colorscheme = "astrodark",
+  --colorscheme = "astrodark",
+  --colorscheme = "gruvbox",
+  --colorscheme = "catppuccin-macchiato",
+  --colorscheme = "catppuccin",
+  colorscheme = "github_dark_colorblind",
+  --colorscheme = "github_dark",
+  --colorscheme = "vscode",
+  --colorscheme = "nordic",
+
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
@@ -31,7 +59,7 @@ return {
     formatting = {
       -- control auto formatting on save
       format_on_save = {
-        enabled = true, -- enable or disable format on save globally
+        enabled = false, -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
           -- "go",
         },
@@ -65,6 +93,7 @@ return {
     },
   },
 
+
   -- This function is run last and is a good place to configuring
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
@@ -82,4 +111,7 @@ return {
     --   },
     -- }
   end,
+
+
 }
+

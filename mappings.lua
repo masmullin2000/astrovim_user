@@ -27,9 +27,25 @@ return {
       end,
       desc = "Pick to close",
     },
+    ["\\"] = { "" }, -- unmap the horizontal split
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus
     ["<leader>b"] = { name = "Buffers" },
+    ["h"] = { "i" },
+    ["i"] = { "k" },
+    ["k"] = { "j" },
+    ["j"] = { "h" },
+    ["<C-j>"] = { "<cmd>wincmd h<cr>", desc = "Go to Left window" },
+    ["<C-k>"] = { "<cmd>wincmd j<cr>", desc = "Go to down window" },
+    ["<C-i>"] = { "<cmd>wincmd k<cr>", desc = "Go to up window" },
+    ["<C-l>"] = { "<cmd>wincmd l<cr>", desc = "Go to right window" },
+    ["<leader>c"] = {
+      function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end,
+      desc = "Toggle comment line",
+    },
+    ["<leader>tt"] = { "<cmd>ToggleTerm direction=float<cr>", desc = "ToggleTerm float" },
+    ["gt"] = { function() vim.cmd.tabnext() end, desc = "Next tab" },
+    ["gT"] = { function() vim.cmd.tabprevious() end, desc = "Previous tab" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
   },
@@ -37,4 +53,14 @@ return {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
   },
+  v = {
+    ["h"] = { "i" },
+    ["i"] = { "k" },
+    ["k"] = { "j" },
+    ["j"] = { "h" },
+    ["<leader>c"] = {
+      "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
+      desc = "Toggle comment for selection",
+   }
+  }
 }

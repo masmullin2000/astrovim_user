@@ -2,14 +2,22 @@
 return {
   opt = {
     -- set to true or false etc.
-    relativenumber = true, -- sets vim.opt.relativenumber
+    relativenumber = false, -- sets vim.opt.relativenumber
     number = true, -- sets vim.opt.number
     spell = false, -- sets vim.opt.spell
     signcolumn = "auto", -- sets vim.opt.signcolumn to auto
     wrap = false, -- sets vim.opt.wrap
+    colorcolumn = "80", -- sets vim.opt.colorcolumn
+    tabstop = 4, -- sets vim.opt.tabstop
+    softtabstop = 4, -- sets vim.opt.softtabstop
+    shiftwidth = 4, -- sets vim.opt.shiftwidth
+    swapfile = false, -- sets vim.opt.swapfile
+    backup = false, -- sets vim.opt.backup
+    expandtab = true, -- sets vim.opt.expandtab
+    smartindent = true, -- sets vim.opt.smartindent
   },
   g = {
-    mapleader = " ", -- sets vim.g.mapleader
+    mapleader = "\\", -- sets vim.g.mapleader
     autoformat_enabled = true, -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
     cmp_enabled = true, -- enable completion at start
     autopairs_enabled = true, -- enable autopairs at start
